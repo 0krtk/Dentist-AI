@@ -4,9 +4,9 @@ import emailjs from "@emailjs/browser";
 // ─────────────────────────────────────────────────────────────────────────────
 // 🔧 EMAILJS CONFIG — replace these with your real values from emailjs.com
 // ─────────────────────────────────────────────────────────────────────────────
-const EMAILJS_SERVICE_ID  = "template_jo5qx6q";   // e.g. "service_abc123"
+const EMAILJS_SERVICE_ID  = "service_bwnyfsp";   // e.g. "service_abc123"
 const EMAILJS_APPT_TEMPLATE  = "template_jo5qx6q"; // e.g. "template_appt01"
-// const EMAILJS_NEWS_TEMPLATE  = "YOUR_NEWSLETTER_TEMPLATE_ID";  // e.g. "template_news01"
+const EMAILJS_NEWS_TEMPLATE  = "template_5pwkc75";  // e.g. "template_news01"
 const EMAILJS_PUBLIC_KEY  = "iyXwpLKkBVH0MlOZW";   // e.g. "user_xxxxxxxxxxx"
 // ─────────────────────────────────────────────────────────────────────────────
 
