@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dentics – High Quality Dental Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Ubuntu:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #516EFF;
+      --secondary: #FFD700;
+      --black: #18181B;
+      --gray: #52525B;
+      --gray-light: #777777;
+      --gray-tone: #BCBCBC;
+      --bg: #F8FAFC;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--black);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-tone);
+      padding: 0 108px;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .logo-name {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--black);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-menu a {
+      text-decoration: none;
+      font-size: 16px;
+      color: var(--gray);
+      font-weight: 400;
+      transition: color .2s;
+    }
+    .nav-menu a.active, .nav-menu a:hover { color: var(--primary); font-weight: 600; }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 14px 40px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .2s, transform .2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--gray);
+      border: 1px solid var(--gray);
+      border-radius: 8px;
+      padding: 14px 40px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ── HERO ── */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      padding: 80px 108px 104px;
+      min-height: 665px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      max-width: 650px;
+    }
+    .hero-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .hero-heading h1 {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 74px;
+      color: var(--black);
+    }
+    .hero-heading h1 .accent { color: var(--secondary); }
+    .hero-heading p {
+      font-size: 20px;
+      color: var(--gray-light);
+      line-height: 34px;
+      max-width: 512px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 40px;
+    }
+    .hero-illustration {
+      position: relative;
+      width: 600px;
+      height: 520px;
+      flex-shrink: 0;
+    }
+    .hero-img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 424px;
+      height: 488px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 20px 60px rgba(81,110,255,.15);
+    }
+    .hero-badge {
+      position: absolute;
+      background: var(--secondary);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+    .hero-badge .num { font-size: 26px; font-weight: 500; }
+    .hero-badge .label { font-size: 13px; line-height: 1.4; }
+    .badge-top { top: 60px; right: 10px; }
+    .badge-mid { top: 240px; left: 0; background: var(--gray-light); }
+    .badge-bot { bottom: 60px; left: 20px; background: var(--secondary); }
+
+    /* ── SECTION HELPERS ── */
+    section { padding: 128px 108px; }
+    .section-label {
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 74px;
+    }
+    .section-label .accent { color: var(--secondary); }
+    .section-sublabel {
+      font-size: 48px;
+      font-weight: 600;
+      color: rgba(24,24,27,.15);
+      line-height: 64px;
+    }
+    .section-sublabel .bold { font-size: 60px; font-weight: 700; }
+    .section-divider {
+      height: 1px;
+      background: var(--gray-tone);
+      flex: 1;
+    }
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 72px;
+    }
+    .section-header-left { display: flex; flex-direction: column; gap: 4px; }
+    .section-header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+
+    /* ── SERVICES / HOW TO ── */
+    .how-to {
+      background: var(--primary);
+      padding: 64px 108px;
+    }
+    .how-to-inner {
+      display: flex;
+      align-items: center;
+      gap: 172px;
+    }
+    .how-to-text h2 {
+      font-size: 42px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 46px;
+      max-width: 500px;
+      margin-bottom: 16px;
+    }
+    .how-to-text p {
+      font-size: 22px;
+      color: rgba(255,255,255,.85);
+      font-weight: 500;
+    }
+    .steps { display: flex; gap: 48px; }
+    .step-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      min-width: 160px;
+    }
+    .step-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .step-card p {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gray);
+      text-align: center;
+      line-height: 24px;
+    }
+
+    /* ── KEY SERVICES ── */
+    .key-services {
+      padding: 0;
+      display: flex;
+    }
+    .ks-left {
+      background: var(--bg);
+      padding: 104px 0 104px 108px;
+      border-bottom-right-radius: 136px;
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      width: 666px;
+    }
+    .ks-left h2 {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 64px;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 40px;
+      max-width: 526px;
+    }
+    .ks-left h2 .accent { color: var(--secondary); font-size: 60px; font-weight: 800; }
+    .ks-left-img {
+      width: 496px;
+      height: 328px;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    .ks-right {
+      padding: 104px 108px 104px 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .ks-desc {
+      font-size: 20px;
+      color: var(--gray-light);
+      line-height: 34px;
+      border-bottom: 1px solid rgba(82,82,91,.25);
+      padding: 32px 0 56px 72px;
+      max-width: 666px;
+    }
+    .service-list-wrap { padding-left: 72px; }
+    .service-list-title {
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 32px;
+    }
+    .service-cols { display: flex; gap: 80px; }
+    .service-col { display: flex; flex-direction: column; gap: 24px; }
+    .service-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--black);
+    }
+    .service-item .icon {
+      width: 28px;
+      height: 28px;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    /* ── FEATURES ── */
+    .features { background: var(--white); }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 72px;
+    }
+    .feature-card {
+      background: var(--bg);
+      border: 1px solid rgba(82,82,91,.1);
+      border-radius: 16px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(81,110,255,.1); }
+    .feature-icon {
+      width: 112px;
+      height: 112px;
+      background: var(--primary);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+    .feature-card h3 { font-size: 24px; font-weight: 500; color: var(--black); }
+    .feature-card p { font-size: 16px; color: var(--gray-light); line-height: 26px; }
+
+    /* ── CTA ── */
+    .cta {
+      background: var(--primary);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      padding: 88px 168px;
+    }
+    .cta h2 {
+      font-size: 42px;
+      font-weight: 600;
+      color: var(--white);
+      max-width: 600px;
+    }
+    .cta h2 span { font-size: 48px; font-weight: 700; }
+    .cta p {
+      font-size: 18px;
+      color: rgba(255,255,255,.85);
+      max-width: 904px;
+      line-height: 30px;
+    }
+    .btn-cta {
+      border: 2px solid var(--white);
+      color: var(--white);
+      background: transparent;
+      border-radius: 16px;
+      padding: 20px 48px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+    }
+    .btn-cta:hover { background: var(--white); color: var(--primary); }
+
+    /* ── WHO WE ARE ── */
+    .who-we-are { background: var(--white); }
+    .who-content {
+      display: flex;
+      gap: 96px;
+      align-items: flex-start;
+    }
+    .who-image-wrap {
+      position: relative;
+      width: 534px;
+      height: 348px;
+      flex-shrink: 0;
+    }
+    .who-bg-rect {
+      position: absolute;
+      left: 0;
+      top: 40px;
+      width: 122px;
+      height: 308px;
+      background: var(--primary);
+      border-radius: 12px;
+    }
+    .who-main-img {
+      position: absolute;
+      left: 40px;
+      top: 0;
+      width: 462px;
+      height: 308px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(34,48,114,.07);
+    }
+    .who-text {
+      background: var(--bg);
+      border: 1px solid rgba(82,82,91,.1);
+      border-radius: 16px;
+      padding: 48px;
+      flex: 1;
+    }
+    .who-text h3 { font-size: 24px; font-weight: 500; margin-bottom: 20px; }
+    .who-text p {
+      font-size: 16px;
+      color: var(--gray-light);
+      line-height: 34px;
+      letter-spacing: .64px;
+    }
+
+    /* ── TEAM ── */
+    .team { background: var(--bg); }
+    .team-grid {
+      display: flex;
+      gap: 40px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    .doctor-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      flex-shrink: 0;
+    }
+    .doctor-img {
+      width: 216px;
+      height: 216px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--white);
+      box-shadow: 0 4px 20px rgba(0,0,0,.1);
+    }
+    .doctor-info { text-align: center; display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+    .doctor-info h4 { font-size: 20px; color: var(--black); line-height: 34px; }
+    .doctor-info p { font-size: 16px; color: var(--gray-light); line-height: 24px; }
+    .btn-appt {
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+      border-radius: 8px;
+      padding: 12px 40px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-appt:hover { background: var(--primary); color: var(--white); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--white);
+      padding: 96px 208px;
+    }
+    .testi-inner {
+      display: flex;
+      gap: 72px;
+      align-items: center;
+    }
+    .testi-image-wrap {
+      position: relative;
+      width: 318px;
+      flex-shrink: 0;
+    }
+    .testi-bg {
+      position: absolute;
+      left: 43px;
+      top: 0;
+      width: 232px;
+      height: 470px;
+      background: var(--primary);
+      border-radius: 16px;
+      opacity: .12;
+    }
+    .testi-avatar {
+      position: relative;
+      width: 238px;
+      height: 238px;
+      border-radius: 16px;
+      object-fit: cover;
+      margin: 40px auto 0;
+      display: block;
+      box-shadow: 0 8px 24px rgba(34,48,114,.1);
+    }
+    .testi-name { text-align: center; margin-top: 24px; font-size: 20px; color: var(--black); font-weight: 600; }
+    .testi-stars { text-align: center; margin-top: 8px; color: var(--secondary); font-size: 20px; letter-spacing: 2px; }
+    .testi-content { flex: 1; }
+    .testi-header {
+      border-top: 2px solid rgba(82,82,91,.15);
+      padding-top: 32px;
+      margin-bottom: 32px;
+    }
+    .testi-header h2 { font-size: 40px; font-weight: 600; line-height: 52px; color: var(--black); max-width: 503px; }
+    .quote-icon { font-size: 48px; color: var(--primary); line-height: 1; margin-bottom: 16px; }
+    .testi-text {
+      font-size: 18px;
+      color: var(--gray-light);
+      line-height: 30px;
+      font-style: italic;
+    }
+    .testi-dots { display: flex; gap: 24px; margin-top: 32px; }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gray-tone);
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .dot.active { background: var(--primary); }
+
+    /* ── APPOINTMENT ── */
+    .appointment { background: var(--bg); }
+    .appt-content {
+      display: flex;
+      gap: 48px;
+    }
+    .appt-image-wrap {
+      position: relative;
+      width: 496px;
+      height: 636px;
+      flex-shrink: 0;
+    }
+    .appt-bg-rect {
+      position: absolute;
+      left: 0;
+      top: 48px;
+      width: 380px;
+      height: 588px;
+      background: var(--primary);
+      border-radius: 24px;
+      opacity: .15;
+    }
+    .appt-main-img {
+      position: absolute;
+      left: 48px;
+      top: 0;
+      width: 448px;
+      height: 588px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 20px 48px rgba(34,48,114,.12);
+    }
+    .appt-form {
+      flex: 1;
+      padding: 48px 98px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 32px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 14px; font-weight: 600; color: var(--gray); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1px solid var(--gray-tone);
+      border-radius: 8px;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-family: inherit;
+      color: var(--black);
+      outline: none;
+      transition: border-color .2s;
+      background: var(--white);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--primary); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: var(--gray);
+    }
+    .form-check input { width: 20px; height: 20px; accent-color: var(--primary); }
+    .btn-submit {
+      width: 100%;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 18px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .btn-submit:hover { opacity: .88; }
+
+    /* ── NEWSLETTER ── */
+    .newsletter {
+      background: var(--white);
+      padding: 96px 108px;
+    }
+    .newsletter-inner {
+      background: var(--bg);
+      border-radius: 24px;
+      padding: 82px;
+      display: flex;
+      align-items: center;
+      gap: 64px;
+    }
+    .newsletter-text { flex: 1; }
+    .newsletter-text h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 44px;
+      margin-bottom: 32px;
+    }
+    .newsletter-form { display: flex; gap: 24px; }
+    .newsletter-input {
+      flex: 1;
+      border: 1px solid var(--gray-tone);
+      border-radius: 8px;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .newsletter-input:focus { border-color: var(--primary); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 104px 108px 0;
+    }
+    .footer-top {
+      display: flex;
+      gap: 48px;
+      padding-bottom: 80px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .footer-col { flex: 1; }
+    .footer-col:first-child { flex: 1.2; }
+    .footer-divider {
+      width: 1px;
+      background: rgba(255,255,255,.1);
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .footer-logo .logo-icon { background: var(--primary); }
+    .footer-logo .logo-name { font-size: 28px; color: var(--white); }
+    .footer-desc { font-size: 14px; color: rgba(255,255,255,.55); line-height: 26px; }
+    .footer-col h4 { font-size: 16px; font-weight: 600; color: rgba(255,255,255,.5); margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase; }
+    .footer-col p { font-size: 15px; color: rgba(255,255,255,.7); line-height: 28px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .footer-links li a { text-decoration: none; color: rgba(255,255,255,.65); font-size: 15px; transition: color .2s; }
+    .footer-links li a:hover { color: var(--white); }
+    .footer-bottom {
+      padding: 24px 0;
+      text-align: center;
+      font-size: 14px;
+      color: rgba(255,255,255,.35);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content { animation: fadeUp .7s ease both; }
+    .hero-illustration { animation: fadeUp .9s .2s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      nav, section, .how-to, .cta, .testimonials, .newsletter, footer {
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+      .hero { padding: 48px 32px; flex-direction: column; }
+      .hero-illustration { width: 100%; max-width: 480px; }
+      .key-services { flex-direction: column; }
+      .ks-left { width: 100%; border-bottom-right-radius: 0; padding: 64px 32px; }
+      .ks-right { padding: 64px 32px; }
+      .who-content { flex-direction: column; }
+      .who-image-wrap { width: 100%; }
+      .appt-content { flex-direction: column; }
+      .appt-image-wrap { display: none; }
+      .testi-inner { flex-direction: column; }
+      .footer-top { flex-direction: column; }
+      .footer-divider { display: none; }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">🦷</div>
+      <span class="logo-name">Dentics</span>
+    </a>
+    <div class="nav-links">
+      <ul class="nav-menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About us</a></li>
+        <li><a href="#appointment">Register</a></li>
+      </ul>
+      <a href="#appointment" class="btn-primary">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-heading">
+      <h1>We Provide High Quality <span class="accent">Dental</span> Services</h1>
+      <p>Appropriately embrace transparent materials via turnkey niche markets.</p>
+    </div>
+    <div class="hero-buttons">
+      <a href="#appointment" class="btn-primary">Get Started</a>
+      <a href="#about" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-illustration">
+    <img
+      class="hero-img"
+      src="https://www.figma.com/api/mcp/asset/7b76e0b1-1eab-45f5-8db6-bf89a271bcd5"
+      alt="Smiling patient at dental clinic"
+    />
+    <div class="hero-badge badge-top">
+      <span class="num">300k+</span>
+      <span class="label">Tooth<br>Got Fixed</span>
+    </div>
+    <div class="hero-badge badge-mid">
+      <span class="num">200K+</span>
+      <span class="label">Happy<br>Customer</span>
+    </div>
+    <div class="hero-badge badge-bot">
+      <span class="num">30+</span>
+      <span class="label">Expert<br>Dentist</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW TO GET SERVICE ── -->
+<div id="services" class="how-to">
+  <div class="how-to-inner">
+    <div class="how-to-text">
+      <h2>How to get our service?</h2>
+      <p>Just follow these simple steps</p>
+    </div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-icon">📞</div>
+        <p>Call for appointment</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">📅</div>
+        <p>Get a Date &amp; Serial</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">🩺</div>
+        <p>Consult Your dentist</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── KEY SERVICES ── -->
+<div class="key-services">
+  <div class="ks-left">
+    <div>
+      <h2>Always <span class="accent">Laugh</span> Whenever Its Possible</h2>
+    </div>
+    <img
+      class="ks-left-img"
+      src="https://www.figma.com/api/mcp/asset/fc7e175c-a4dc-4dd4-a9eb-7817d439a75c"
+      alt="Dental services"
+    />
+  </div>
+  <div class="ks-right">
+    <p class="ks-desc">
+      We also offer treatments that improve the appearance of your smile giving you the confidence boost you deserve. The process of our treatment is below.
+    </p>
+    <div class="service-list-wrap">
+      <p class="service-list-title">WHAT WE PROVIDE</p>
+      <div class="service-cols">
+        <div class="service-col">
+          <div class="service-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Check ups
+          </div>
+          <div class="service-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Cosmetic dentistry
+          </div>
+          <div class="service-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Orthodontics
+          </div>
+          <div class="service-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Preventative checks
+          </div>
+        </div>
+        <div class="service-col">
+          <div class="service-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Emergencies
+          </div>
+          <div class="service-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Dental implants
+          </div>
+          <div class="service-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Children's dentistry
+          </div>
+          <div class="service-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Telephone consultations
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── KEY FEATURES ── -->
+<section class="features">
+  <div class="section-header">
+    <div class="section-header-left">
+      <div class="section-sublabel">What Makes Us More <span class="bold">Special</span></div>
+    </div>
+    <div class="section-header-right">
+      <div class="section-label">KEY <span class="accent">FEATURE</span></div>
+      <div class="section-divider"></div>
+    </div>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🔬</div>
+      <h3>Laser Technology</h3>
+      <p>World's most advanced Diode Laser. Your treatment experience will be relaxing &amp; smooth.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🧠</div>
+      <h3>Expert Specialists</h3>
+      <p>Our team of experienced specialists provides personalized dental care for every patient.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🛡️</div>
+      <h3>Sterilized Equipment</h3>
+      <p>We maintain the highest hygiene standards with fully sterilized tools and workspaces.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💊</div>
+      <h3>Painless Procedures</h3>
+      <p>Modern anesthesia and comfort-first techniques ensure a painless, stress-free experience.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Digital X-Rays</h3>
+      <p>Instant digital imaging for accurate diagnosis with minimal radiation exposure.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌟</div>
+      <h3>Cosmetic Excellence</h3>
+      <p>Smile makeovers, veneers &amp; whitening services for that perfect, confident smile.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<div class="cta">
+  <div>
+    <h2>Let Us Brighten <span>Your Smile!</span></h2>
+  </div>
+  <p>Helping patients achieve good dental health &amp; beautiful smile is a privilege &amp; responsibility. For over 30 years, we proudly provided the best dental experience in New York. Our comfort-first approach is designed to meet the needs of you &amp; your entire family.</p>
+  <a href="#appointment" class="btn-cta">Make An Appointment</a>
+</div>
+
+<!-- ── WHO WE ARE ── -->
+<section id="about" class="who-we-are">
+  <div class="section-header">
+    <div class="section-header-left">
+      <div class="section-label"><span style="color:var(--black)">WHO</span> <span class="accent">WE ARE</span></div>
+      <div class="section-divider" style="width:1030px;"></div>
+    </div>
+    <div class="section-header-right">
+      <div class="section-sublabel">Our Glorious <span class="bold">History</span></div>
+    </div>
+  </div>
+  <div class="who-content">
+    <div class="who-image-wrap">
+      <div class="who-bg-rect"></div>
+      <img
+        class="who-main-img"
+        src="https://www.figma.com/api/mcp/asset/46fcdeac-f456-49f8-845f-70dfeed4f844"
+        alt="Smiling dental patient"
+      />
+    </div>
+    <div class="who-text">
+      <h3>Our history</h3>
+      <p>Dentics is a well-known name in dental and oral care in New York. The journey of this institution started in 1990 under the hands of Dr. Jonathon Doe, Gold Medalist of Harvard University. Dentics dental center has been leading the way in dental treatment in USA for more than 30 years in keeping with the evolution of time and the modernization of the era.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section class="team">
+  <div class="section-header">
+    <div class="section-header-left">
+      <div class="section-sublabel">Meet Some of Our <span class="bold">Brains</span></div>
+    </div>
+    <div class="section-header-right">
+      <div class="section-label">MEET OUR <span class="accent">DOCTORS</span></div>
+      <div class="section-divider"></div>
+    </div>
+  </div>
+  <div class="team-grid">
+    <div class="doctor-card">
+      <img class="doctor-img" src="https://www.figma.com/api/mcp/asset/b3eb1260-1c96-4722-a0e8-6f85391c68cf" alt="Dr. Jeanette Hoff" />
+      <div>
+        <div class="doctor-info">
+          <h4>Dr. Jeanette Hoff</h4>
+          <p>Orthodontic Treatment</p>
+          <p>Yale Medical School</p>
+        </div>
+        <a href="#appointment" class="btn-appt">Appointment</a>
+      </div>
+    </div>
+    <div class="doctor-card">
+      <img class="doctor-img" src="https://www.figma.com/api/mcp/asset/adcba850-28fa-4eb6-8d9c-60a8fa580047" alt="Dr. David Ambrose" />
+      <div>
+        <div class="doctor-info">
+          <h4>Dr. David Ambrose</h4>
+          <p>Orthodontic Treatment</p>
+          <p>Harvard Medical School</p>
+        </div>
+        <a href="#appointment" class="btn-appt">Appointment</a>
+      </div>
+    </div>
+    <div class="doctor-card">
+      <img class="doctor-img" src="https://www.figma.com/api/mcp/asset/913e850d-8776-4cf7-b655-5edb8b2a0af2" alt="Dr. Jenelia Breton" />
+      <div>
+        <div class="doctor-info">
+          <h4>Dr. Jenelia Breton</h4>
+          <p>Orthodontic Treatment</p>
+          <p>Oxford Medical School</p>
+        </div>
+        <a href="#appointment" class="btn-appt">Appointment</a>
+      </div>
+    </div>
+    <div class="doctor-card">
+      <img class="doctor-img" src="https://www.figma.com/api/mcp/asset/de7953e9-15de-4154-9af0-48df0788aacd" alt="Dr. Jagajeet Aurora" />
+      <div>
+        <div class="doctor-info">
+          <h4>Dr. Jagajeet Aurora</h4>
+          <p>Orthodontic Treatment</p>
+          <p>Harvard Medical School</p>
+        </div>
+        <a href="#appointment" class="btn-appt">Appointment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials">
+  <div class="testi-inner">
+    <div class="testi-image-wrap">
+      <div class="testi-bg"></div>
+      <img
+        class="testi-avatar"
+        src="https://www.figma.com/api/mcp/asset/b3eb1260-1c96-4722-a0e8-6f85391c68cf"
+        alt="Client"
+      />
+      <p class="testi-name">Sarah Johnson</p>
+      <p class="testi-stars">★★★★★</p>
+    </div>
+    <div class="testi-content">
+      <div class="testi-header">
+        <h2>What our client says about us</h2>
+      </div>
+      <div class="quote-icon">"</div>
+      <p class="testi-text">
+        Dentics completely changed how I feel about going to the dentist. The team is incredibly professional and the clinic is state-of-the-art. My treatment was painless and the results are amazing. I've been recommending them to everyone I know. Best dental experience I've ever had in New York!
+      </p>
+      <div class="testi-dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── APPOINTMENT ── -->
+<section id="appointment" class="appointment">
+  <div class="section-header">
+    <div class="section-header-left">
+      <div class="section-label">MAKE AN <span class="accent">APPOINTMENT</span></div>
+      <div class="section-divider" style="width:1030px;"></div>
+    </div>
+    <div class="section-header-right">
+      <div class="section-sublabel">Consult with our <span class="bold">Doctor</span></div>
+    </div>
+  </div>
+  <div class="appt-content">
+    <div class="appt-image-wrap">
+      <div class="appt-bg-rect"></div>
+      <img
+        class="appt-main-img"
+        src="https://www.figma.com/api/mcp/asset/46fcdeac-f456-49f8-845f-70dfeed4f844"
+        alt="Dental appointment"
+      />
+    </div>
+    <div class="appt-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Your first name" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+1 (000) 000-0000" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date" />
+        </div>
+        <div class="form-group">
+          <label>Select Doctor</label>
+          <select>
+            <option>Dr. Jeanette Hoff</option>
+            <option>Dr. David Ambrose</option>
+            <option>Dr. Jenelia Breton</option>
+            <option>Dr. Jagajeet Aurora</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:24px">
+        <label>Your Message</label>
+        <textarea placeholder="Describe your concern…"></textarea>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" id="terms" />
+        <label for="terms">I agree to the Terms & Conditions and Privacy Policy</label>
+      </div>
+      <button class="btn-submit">Book Appointment</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWSLETTER ── -->
+<div class="newsletter">
+  <div class="newsletter-inner">
+    <div class="newsletter-text">
+      <h3>Subscribe to our newsletter &amp; get the latest updates</h3>
+      <div class="newsletter-form">
+        <input class="newsletter-input" type="text" placeholder="First name" />
+        <input class="newsletter-input" type="email" placeholder="Email address" />
+        <button class="btn-primary">Subscribe Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <div class="logo-icon">🦷</div>
+        <span class="logo-name">Dentics</span>
+      </div>
+      <p class="footer-desc">Dentics is a well-known name in dental and oral care in New York. The journey of this institution started in 1990.</p>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col">
+      <h4>We are welcoming you</h4>
+      <p style="font-size:22px;font-weight:600;margin-bottom:16px;color:white">Want to visit our clinic?</p>
+      <p>Saturday – Thursday</p>
+      <p>10 am – 9 pm</p>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col">
+      <h4>Important Links</h4>
+      <ul class="footer-links">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Career</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col">
+      <h4>Say hello to us</h4>
+      <p style="margin-bottom:24px">hello@reallygreatsite.com</p>
+      <p style="color:rgba(255,255,255,.5);font-size:13px;margin-bottom:8px">Address</p>
+      <p>123 Anywhere St., Any City, NY 39200</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2000–2024, All rights reserved — Dentics Dental Clinic
+  </div>
+</footer>
+
+<script>
+  // Dot carousel for testimonials
+  document.querySelectorAll('.dot').forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.feature-card, .doctor-card, .who-content, .appt-content').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
